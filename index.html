@@ -1,12 +1,606 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Impacto Pro | Toalhas Profissionais</title><link rel="stylesheet" href="styles.css"></head><body>
-<header class="topbar"><div class="container nav"><div class="brand"><span>IMPACTO</span> <span>PRO</span></div><nav class="navlinks"><a href="#produtos">Produtos</a><a href="#atacado">Atacado</a><a href="#beneficios">Benefícios</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav><div class="actions"><a class="btn btn-dark" href="sistema.html">Sistema</a><button class="btn btn-primary" onclick="openCart()">Carrinho <span id="cartCount">0</span></button></div></div></header>
-<main>
-<section class="hero"><div class="container hero-grid"><div><span class="eyebrow">TOALHAS PROFISSIONAIS PARA SALÕES E BARBEARIAS</span><h1>Alta performance. <span class="blue">Mais durabilidade.</span> <span class="pink">Mais resultado.</span></h1><p>Toalhas profissionais pensadas para a rotina intensa de salões, barbearias e estética. Cores marcantes, resistência e acabamento premium para valorizar seu atendimento.</p><div class="hero-actions"><a class="btn btn-primary" href="#produtos">Comprar agora</a><a class="btn btn-dark" href="#atacado">Quero comprar no atacado</a></div></div><div class="hero-card"><div class="product-visual"><span class="badge">Linha PRO</span><div class="towels"><div class="towel blue"></div><div class="towel pink"></div><div class="towel black"></div></div></div></div></div></section>
-<section class="section" id="beneficios"><div class="container"><div class="section-title"><div><h2>Feitas para uso profissional</h2></div><p>Uma linha desenvolvida para quem precisa de boa apresentação, reposição rápida e controle de custos.</p></div><div class="grid grid-4"><div class="card"><div class="feature-icon">⚡</div><h3>Alta resistência</h3><p class="muted">Pensadas para uso frequente e lavagens recorrentes.</p></div><div class="card"><div class="feature-icon">🧴</div><h3>Uso profissional</h3><p class="muted">Ideal para salões, barbearias, estética e serviços especializados.</p></div><div class="card"><div class="feature-icon">📦</div><h3>Kits e atacado</h3><p class="muted">Compre unitário, em kits ou em quantidade para sua operação.</p></div><div class="card"><div class="feature-icon">🚚</div><h3>Compra online</h3><p class="muted">Pedido rápido, acompanhamento e integração com o estoque.</p></div></div></div></section>
-<section class="section" id="produtos"><div class="container"><div class="section-title"><div><span class="eyebrow">PRODUTOS</span><h2>Escolha sua cor</h2></div><p>Valores demonstrativos nesta versão inicial. Você poderá editar tudo pelo sistema.</p></div><div class="grid grid-3" id="productGrid"></div></div></section>
-<section class="section" id="atacado"><div class="container"><div class="promo"><div><span class="eyebrow">ATACADO IMPACTO PRO</span><h3>Condições especiais para salões e revendedores.</h3><p class="muted">Cadastre seu interesse para receber tabela por quantidade, kits e condições comerciais.</p></div><button class="btn btn-primary" onclick="alert('Em breve: cadastro de atacado integrado ao CRM.')">Quero tabela de atacado</button></div></div></section>
-<section class="section" id="sobre"><div class="container grid grid-2"><div class="card"><h2>Sobre a Impacto Pro</h2><p class="muted">A Impacto Pro nasce para atender profissionais que precisam de produtos confiáveis, visual marcante e reposição simples. A loja foi pensada desde o início para integrar venda online, venda local, estoque e gestão.</p></div></div></section>
-<section class="section" id="contato"><div class="container"><div class="promo"><div><h3>Fale com a Impacto Pro</h3><p class="muted">Atendimento comercial, pedidos, atacado e suporte.</p></div><button class="btn btn-pink" onclick="alert('Configure o WhatsApp no painel de configurações.')">Chamar no WhatsApp</button></div></div></section>
-</main><footer class="footer"><div class="container">© 2026 Impacto Pro • Loja online e sistema integrado</div></footer>
-<div id="cartModal" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:80;display:grid;place-items:center"><div class="card" style="width:min(560px,92%);max-height:80vh;overflow:auto"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Seu carrinho</h2><button class="btn btn-dark btn-sm" onclick="closeCart()">Fechar</button></div><div id="cartItems"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><strong>Total</strong><strong id="cartTotal">R$ 0,00</strong></div><button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="checkout()">Finalizar pedido</button></div></div>
-<script src="app.js"></script></body></html>
+```html
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Impacto Pro | Toalhas Profissionais</title>
+  <meta name="description" content="Impacto Pro: toalhas profissionais para salões, barbearias, estética e revenda. Loja online integrada a estoque, vendas e gestão.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="impacto-site">
+  <div class="site-noise"></div>
+  <div class="cursor-glow"></div>
+
+  <header class="topbar futuristic-nav">
+    <div class="container nav">
+      <a href="#inicio" class="brand brand-pro" aria-label="Impacto Pro">
+        <span class="brand-impacto">IMPACTO</span><span class="brand-pro-word">PRO</span>
+        <small>PROFESSIONAL TOWELS</small>
+      </a>
+
+      <nav class="navlinks">
+        <a href="#inicio">Início</a>
+        <a href="#colecao">Coleção</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#sistema">Sistema</a>
+        <a href="#atacado">Atacado</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn btn-ghost" href="sistema.html">Sistema</a>
+        <button class="btn btn-neon" onclick="openCart()">Carrinho <span id="cartCount">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-future" id="inicio">
+      <div class="grid-floor"></div>
+      <div class="neon-orb orb-blue"></div>
+      <div class="neon-orb orb-pink"></div>
+      <div class="neon-line line-a"></div>
+      <div class="neon-line line-b"></div>
+
+      <div class="container hero-future-grid">
+        <div class="hero-future-copy reveal">
+          <div class="future-label">
+            <i></i> TOALHAS PROFISSIONAIS • PERFORMANCE • ESTILO
+          </div>
+
+          <h1>
+            Não é só uma toalha.
+            <span>É a imagem do seu atendimento.</span>
+          </h1>
+
+          <p class="hero-lead">
+            A <strong>Impacto Pro</strong> transforma um item essencial da rotina profissional
+            em parte da experiência da sua marca.
+            Toalhas pensadas para salões, barbearias, estética e revenda —
+            com presença, identidade e operação inteligente.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-neon btn-lg" href="#colecao">
+              Explorar coleção <b>→</b>
+            </a>
+
+            <a class="btn btn-ghost btn-lg" href="#sistema">
+              Conhecer ecossistema
+            </a>
+          </div>
+
+          <div class="proof-row">
+            <div>
+              <span>01</span>
+              <strong>Venda online</strong>
+              <small>Experiência digital de alto impacto.</small>
+            </div>
+
+            <div>
+              <span>02</span>
+              <strong>Venda local</strong>
+              <small>PDV conectado ao mesmo estoque.</small>
+            </div>
+
+            <div>
+              <span>03</span>
+              <strong>Gestão completa</strong>
+              <small>Dados, caixa, despesas e relatórios.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-future-visual reveal delay-1">
+          <div class="orbit orbit-1"></div>
+          <div class="orbit orbit-2"></div>
+          <div class="orbit-dot dot-a"></div>
+          <div class="orbit-dot dot-b"></div>
+
+          <div class="product-core">
+            <div class="core-label">
+              IMPACTO <span>PRO</span>
+            </div>
+
+            <div class="core-stage">
+              <div class="towel-roll roll-blue">
+                <em>BLUE</em>
+              </div>
+
+              <div class="towel-roll roll-pink">
+                <em>PINK</em>
+              </div>
+
+              <div class="towel-roll roll-black">
+                <em>BLACK</em>
+              </div>
+            </div>
+
+            <div class="core-caption">
+              <small>COLEÇÃO PROFISSIONAL</small>
+              <strong>Três cores. Uma identidade forte.</strong>
+            </div>
+          </div>
+
+          <div class="float-tag tag-top">
+            <span>⚡</span>
+            <b>Visual premium</b>
+            <small>feito para marcar presença</small>
+          </div>
+
+          <div class="float-tag tag-bottom">
+            <span>↗</span>
+            <b>Pronto para vender</b>
+            <small>site + estoque + pedidos</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span></span>
+        DESCUBRA A IMPACTO PRO
+      </div>
+    </section>
+
+    <section class="ticker-section">
+      <div class="ticker-track">
+        <span>IMPACTO PRO</span>
+        <i>✦</i>
+        <span>TOALHAS PROFISSIONAIS</span>
+        <i>✦</i>
+        <span>VENDA ONLINE</span>
+        <i>✦</i>
+        <span>ATACADO</span>
+        <i>✦</i>
+        <span>SISTEMA INTEGRADO</span>
+        <i>✦</i>
+        <span>ESTOQUE INTELIGENTE</span>
+        <i>✦</i>
+        <span>IMPACTO PRO</span>
+      </div>
+    </section>
+
+    <section class="section future-section" id="experiencia">
+      <div class="container">
+        <div class="future-heading reveal">
+          <span class="section-code">01 • EXPERIÊNCIA IMPACTO</span>
+
+          <h2>
+            Uma marca feita para parecer
+            <span>grande desde o primeiro clique.</span>
+          </h2>
+
+          <p>
+            Do design da loja à gestão interna,
+            tudo conversa dentro do mesmo universo visual e comercial.
+          </p>
+        </div>
+
+        <div class="bento-grid reveal delay-1">
+
+          <article class="bento-card bento-large card-blue">
+            <div class="card-number">01</div>
+            <div class="bento-icon">↗</div>
+
+            <div class="bento-content">
+              <small>EXPERIÊNCIA DIGITAL</small>
+
+              <h3>
+                Uma vitrine que vende antes mesmo do clique.
+              </h3>
+
+              <p>
+                Design forte, navegação direta e produtos apresentados
+                com linguagem visual premium.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento-card card-pink">
+            <div class="card-number">02</div>
+            <div class="bento-icon">◎</div>
+
+            <div class="bento-content">
+              <small>IDENTIDADE</small>
+
+              <h3>Azul. Rosa. Preto.</h3>
+
+              <p>
+                Uma combinação memorável
+                e impossível de passar despercebida.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento-card card-dark">
+            <div class="card-number">03</div>
+            <div class="bento-icon">▦</div>
+
+            <div class="bento-content">
+              <small>OPERAÇÃO</small>
+
+              <h3>Venda local + online.</h3>
+
+              <p>
+                Do balcão ao checkout,
+                tudo dentro do mesmo fluxo.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento-card bento-wide card-mix">
+            <div class="card-number">04</div>
+            <div class="bento-icon">⚡</div>
+
+            <div class="bento-content">
+              <small>VISÃO DE NEGÓCIO</small>
+
+              <h3>
+                Mais controle.
+                Mais leitura.
+                Mais decisão.
+              </h3>
+
+              <p>
+                Estoque, caixa, despesas, vendas,
+                usuários e relatórios conectados
+                em tempo real na evolução final do projeto.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section collection-future" id="colecao">
+      <div class="container">
+
+        <div class="split-heading reveal">
+          <div>
+            <span class="section-code">02 • COLEÇÃO</span>
+
+            <h2>
+              Escolha sua cor.<br>
+              <span>Defina sua presença.</span>
+            </h2>
+          </div>
+
+          <p>
+            Uma coleção criada para integrar estética e praticidade
+            no ambiente profissional.
+            Valores demonstrativos nesta versão inicial.
+          </p>
+        </div>
+
+        <div class="collection-stage reveal delay-1">
+
+          <div class="collection-side">
+            <div class="vertical-title">
+              IMPACTO PRO / COLLECTION 01
+            </div>
+
+            <h3>
+              Três personalidades.<br>
+              Uma só assinatura.
+            </h3>
+
+            <p>
+              Azul para confiança.
+              Rosa para destaque.
+              Preto para sofisticação.
+            </p>
+
+            <div class="micro-tags">
+              <span>PROFISSIONAL</span>
+              <span>ATACADO</span>
+              <span>REVENDA</span>
+            </div>
+          </div>
+
+          <div
+            class="grid grid-3 product-grid-future"
+            id="productGrid">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section system-universe" id="sistema">
+      <div class="system-glow"></div>
+
+      <div class="container">
+
+        <div class="future-heading reveal center-heading">
+          <span class="section-code">
+            03 • ECOSSISTEMA IMPACTO PRO
+          </span>
+
+          <h2>
+            A loja é só a superfície.<br>
+            <span>Por trás existe uma operação inteira.</span>
+          </h2>
+
+          <p>
+            Um sistema criado para transformar vendas em informação
+            e informação em controle.
+          </p>
+        </div>
+
+        <div class="ecosystem-layout reveal delay-1">
+
+          <div class="eco-node node-left-top">
+            <b>PDV</b>
+            <small>Venda local</small>
+          </div>
+
+          <div class="eco-node node-left-bottom">
+            <b>ESTOQUE</b>
+            <small>Entradas e saídas</small>
+          </div>
+
+          <div class="eco-node node-right-top">
+            <b>ONLINE</b>
+            <small>Pedidos do site</small>
+          </div>
+
+          <div class="eco-node node-right-bottom">
+            <b>FINANCEIRO</b>
+            <small>Despesas e caixa</small>
+          </div>
+
+          <div class="eco-core">
+            <div class="eco-ring"></div>
+            <div class="eco-ring ring-2"></div>
+
+            <div class="eco-logo">
+              IMPACTO<br>
+              <span>PRO</span>
+              <small>SYSTEM</small>
+            </div>
+          </div>
+
+          <div class="eco-line l1"></div>
+          <div class="eco-line l2"></div>
+          <div class="eco-line l3"></div>
+          <div class="eco-line l4"></div>
+
+        </div>
+
+        <div class="system-features reveal delay-2">
+
+          <div>
+            <span>01</span>
+            <h4>Dashboard</h4>
+            <p>
+              Indicadores rápidos para acompanhar a operação.
+            </p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <h4>Vendas</h4>
+            <p>
+              Local e online dentro do mesmo ambiente.
+            </p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <h4>Estoque</h4>
+            <p>
+              Movimentação, baixa e reposição.
+            </p>
+          </div>
+
+          <div>
+            <span>04</span>
+            <h4>Financeiro</h4>
+            <p>
+              Entradas, saídas, despesas e caixa.
+            </p>
+          </div>
+
+          <div>
+            <span>05</span>
+            <h4>Relatórios</h4>
+            <p>
+              Filtros e leitura do desempenho.
+            </p>
+          </div>
+
+          <div>
+            <span>06</span>
+            <h4>Usuários</h4>
+            <p>
+              Acessos por administrador e vendedor.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="system-cta reveal">
+          <a href="sistema.html" class="btn btn-neon btn-lg">
+            Entrar no sistema <b>→</b>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section wholesale-future" id="atacado">
+      <div class="container">
+
+        <div class="wholesale-card reveal">
+
+          <div class="wholesale-code">
+            B2B / IMPACTO PRO
+          </div>
+
+          <div>
+            <span class="section-code">
+              04 • ATACADO
+            </span>
+
+            <h2>
+              Quanto maior sua operação,<br>
+              <span>maior precisa ser sua vantagem.</span>
+            </h2>
+
+            <p>
+              Condições especiais para salões,
+              profissionais, equipes,
+              lojistas e revendedores.
+            </p>
+          </div>
+
+          <div class="wholesale-actions">
+            <button
+              class="btn btn-neon"
+              onclick="alert('Em breve: cadastro de atacado integrado ao CRM.')">
+              Solicitar tabela
+            </button>
+
+            <a href="#contato" class="btn btn-ghost">
+              Falar com comercial
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-future" id="contato">
+      <div class="container contact-future-grid">
+
+        <div class="reveal">
+          <span class="section-code">
+            05 • CONTATO
+          </span>
+
+          <h2>
+            Seu atendimento também pode começar com
+            <span>impacto.</span>
+          </h2>
+
+          <p>
+            Fale com a Impacto Pro para pedidos,
+            atacado, revenda e informações comerciais.
+          </p>
+        </div>
+
+        <div class="contact-actions-future reveal delay-1">
+
+          <button
+            class="btn btn-neon btn-lg"
+            onclick="alert('Configure o WhatsApp no painel de configurações.')">
+            Chamar no WhatsApp <b>→</b>
+          </button>
+
+          <a href="sistema.html" class="text-link">
+            Acessar sistema administrativo ↗
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer futuristic-footer">
+
+    <div class="container footer-future-grid">
+
+      <div class="brand brand-pro footer-brand">
+        <span class="brand-impacto">IMPACTO</span>
+        <span class="brand-pro-word">PRO</span>
+      </div>
+
+      <p>
+        Toalhas profissionais.
+        Presença forte.
+        Operação inteligente.
+      </p>
+
+      <span>
+        © 2026 IMPACTO PRO
+      </span>
+
+    </div>
+
+  </footer>
+
+  <div id="cartModal" class="hidden cart-modal">
+
+    <div class="card cart-card">
+
+      <div class="cart-head">
+
+        <h2>
+          Seu carrinho
+        </h2>
+
+        <button
+          class="btn btn-ghost btn-sm"
+          onclick="closeCart()">
+          Fechar
+        </button>
+
+      </div>
+
+      <div id="cartItems"></div>
+
+      <div class="cart-total-row">
+
+        <strong>
+          Total
+        </strong>
+
+        <strong id="cartTotal">
+          R$ 0,00
+        </strong>
+
+      </div>
+
+      <button
+        class="btn btn-neon"
+        style="width:100%;margin-top:16px"
+        onclick="checkout()">
+        Finalizar pedido
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: .12
+    });
+
+    document
+      .querySelectorAll('.reveal')
+      .forEach(el => io.observe(el));
+
+    const glow = document.querySelector('.cursor-glow');
+
+    window.addEventListener('pointermove', e => {
+      if(glow) {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
